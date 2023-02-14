@@ -1,21 +1,34 @@
 // JSX - JavaScript XML
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer'
+};
+
 var template = (
     <div>
-        <h1>Indecision App</h1>
-        <p>This is some info!</p>
-        <ol>
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-        </ol>
+        <h1>{app.title}</h1>
+        <h2>{app.subtitle}</h2>
     </div>
 );
 
+var user = {
+    name: 'Andrew Mead',
+    age: 25,
+    location: 'new york'
+} 
+
+function capitalize(sentence) {
+    return sentence.split(" ").map((word) => {
+        return word[0].toUpperCase() + word.substring(1);
+    }).join(" ")
+}
+
+
 var templateTwo = (
     <div>
-        <h1>Pedro Costa</h1>
-        <p>Age: 25</p>
-        <p>Location: Porto</p>
+        <h1>{user.name}</h1>
+        <p>Age: {user.age}</p>
+        <p>Location: {capitalize(user.location)}</p>
     </div>
 );
 var appRoot = document.getElementById('app');

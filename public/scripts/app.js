@@ -1,39 +1,37 @@
 'use strict';
 
 // JSX - JavaScript XML
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer'
+};
+
 var template = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        'Indecision App'
+        app.title
     ),
     React.createElement(
-        'p',
+        'h2',
         null,
-        'This is some info!'
-    ),
-    React.createElement(
-        'ol',
-        null,
-        React.createElement(
-            'li',
-            null,
-            'item 1'
-        ),
-        React.createElement(
-            'li',
-            null,
-            'item 2'
-        ),
-        React.createElement(
-            'li',
-            null,
-            'item 3'
-        )
+        app.subtitle
     )
 );
+
+var user = {
+    name: 'Andrew Mead',
+    age: 25,
+    location: 'new york'
+};
+
+function capitalize(sentence) {
+    return sentence.split(" ").map(function (word) {
+        return word[0].toUpperCase() + word.substring(1);
+    }).join(" ");
+}
 
 var templateTwo = React.createElement(
     'div',
@@ -41,17 +39,19 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        'Pedro Costa'
+        user.name
     ),
     React.createElement(
         'p',
         null,
-        'Age: 25'
+        'Age: ',
+        user.age
     ),
     React.createElement(
         'p',
         null,
-        'Location: Porto'
+        'Location: ',
+        capitalize(user.location)
     )
 );
 var appRoot = document.getElementById('app');
