@@ -2,7 +2,7 @@
 const app = {
     title: 'Indecision App',
     subtitle: 'Put your life in the hands of a computer',
-    options: ['One','Two']
+    options: ['One', 'Two']
 };
 
 const template = (
@@ -17,7 +17,7 @@ const user = {
     name: 'Andrew Mead',
     age: 25,
     location: 'new york'
-} 
+}
 
 function capitalize(sentence) {
     return sentence.split(" ").map((word) => {
@@ -25,18 +25,33 @@ function capitalize(sentence) {
     }).join(" ")
 }
 
-function getLocation(location)
-{
+function getLocation(location) {
     if (location) {
         return <p>Location: {capitalize(location)}</p>;
     }
 }
 
+let count = 0;
+const addOne = () => {
+    count++;
+    console.log(count);
+}
+
+const subOne = () => {
+    count > 0 && count--;
+    console.log(count);
+}
+
+const reset = () => {
+    count = 0;
+    console.log(count);
+}
 const templateTwo = (
     <div>
-        <h1>{user.name ? user.name : 'Anonymous'}</h1>
-        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-        {getLocation(user.location)}
+        <h1>Count: {count}</h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={subOne}>-1</button>
+        <button onClick={reset}>reset</button>
     </div>
 );
 const appRoot = document.getElementById('app');
