@@ -27,11 +27,20 @@ const removeAllOptions = () => {
   render();
 }
 
+let decision = '';
+const onMakeDecision = () => {
+  const index = Math.floor(Math.random() * app.options.length);
+  decision = app.options[index];
+  render();
+}
+
 const renderOptions = () => {
   return <div>
     <button onClick={removeAllOptions}>remove all</button>
+    {decision && <p>Do: {decision}</p>}
     <ul>
-      {app.options.map((option) => <li key={app.options.indexOf(option)}>{option}</li>)}
+      {app.options.map((option) =>
+      <li key={app.options.indexOf(option)}>{option}</li>)}
     </ul>
   </div>
 }
@@ -48,6 +57,7 @@ const render = () => {
         <input type="text" name="option"></input>
         <button>add option</button>
       </form>
+      <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
     </div>
   );
 
