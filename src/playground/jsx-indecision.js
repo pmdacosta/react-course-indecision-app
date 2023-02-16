@@ -14,7 +14,6 @@ const onFormSubmit = (event) => {
   event.preventDefault();
   const option = event.target.elements.option.value;
   if (option) {
-    event.preventDefault();
     event.target.elements.option.value = '';
     app.options.push(option);
     console.log(app.options);
