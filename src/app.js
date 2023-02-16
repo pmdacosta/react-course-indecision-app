@@ -4,7 +4,8 @@ const app = {
   subtitle: 'Put your life in the hands of a computer',
   options: [],
   optionsList() {
-    return this.options.map((option) => <li>{option}</li>);
+    return this.options.map((option) =>
+    <li key={this.options.indexOf(option)}>{option}</li>);
   }
 };
 
@@ -26,6 +27,15 @@ const removeAllOptions = () => {
   render();
 }
 
+const renderOptions = () => {
+  return <div>
+    <button onClick={removeAllOptions}>remove all</button>
+    <ul>
+      {app.options.map((option) => <li key={app.options.indexOf(option)}>{option}</li>)}
+    </ul>
+  </div>
+}
+
 const appRoot = document.getElementById('app');
 const render = () => {
   const template = (
@@ -33,10 +43,7 @@ const render = () => {
       <h1>{app.title}</h1>
       {app.subtitle && <p>{app.subtitle}</p>}
 
-      <p>{app.options.length > 0 ? <div>
-        <button onClick={removeAllOptions}>remove all</button>
-        <ul>{app.optionsList()}</ul>
-        </div> : "No options"}</p>
+      {app.options.length > 0 ? renderOptions() : <p>No options</p>}
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option"></input>
         <button>add option</button>
