@@ -10,6 +10,12 @@ class IndecisionApp extends React.Component {
     this.removeOption = this.removeOption.bind(this);
     this.handlePick = this.handlePick.bind(this);
   }
+  componentDidMount(){
+    console.log('componentDidMount');
+  }
+  componentDidUpdate(){
+    console.log('componentDidUpdate');
+  }
 
   handleAddOption(option) {
     if (!option) {
