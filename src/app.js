@@ -2,7 +2,7 @@ class IndecisionApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: props.options,
+      options: [],
       pick: '',
     }
     this.handleAddOption = this.handleAddOption.bind(this);
@@ -10,11 +10,22 @@ class IndecisionApp extends React.Component {
     this.removeOption = this.removeOption.bind(this);
     this.handlePick = this.handlePick.bind(this);
   }
-  componentDidMount(){
-    console.log('componentDidMount');
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem('options');
+      const options = JSON.parse(json);
+      if (options) {
+        this.setState(() => ({ options }));
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
-  componentDidUpdate(){
-    console.log('componentDidUpdate');
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem('options', json);
+    }
   }
 
   handleAddOption(option) {
@@ -34,7 +45,7 @@ class IndecisionApp extends React.Component {
 
   removeOption(option) {
     this.setState((prevState) => ({
-        options: prevState.options.filter(word => word !== option)
+      options: prevState.options.filter(word => word !== option)
     }));
   }
 
@@ -65,9 +76,7 @@ class IndecisionApp extends React.Component {
     );
   }
 }
-IndecisionApp.defaultProps = {
-  options: []
-}
+
 const Header = (props) => {
   return (
     <div>
@@ -102,6 +111,7 @@ const Options = (props) => {
         disabled={!props.options.length}
         onClick={props.clearOptions}
       >Remove All</button>
+      {props.options.length === 0 && <p>Please insert an option to get started!</p>}
       {
         props.options.map((option) =>
           <Option
@@ -140,12 +150,10 @@ class AddOption extends React.Component {
     event.preventDefault();
     const option = event.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
-    if (error) {
-      this.setState(() => ({ error }));
-    } else {
-      this.setState(() => ({ error: undefined }));
+    this.setState(() => ({ error }));
+    if (!error) {
+      event.target.elements.option.value = '';
     }
-    event.target.elements.option.value = '';
   }
 
   render() {
