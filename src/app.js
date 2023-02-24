@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp';
 
-const template = <h1 color="red">Hello World</h1>;
-//const template = React.createElement('h1', {color: 'red'}, 'Hello World');
-
-ReactDOM.render(template, document.getElementById('app'));
-
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
