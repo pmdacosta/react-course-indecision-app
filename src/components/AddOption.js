@@ -1,15 +1,11 @@
 import React from "react";
 
 export default class AddOption extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.state = {
-      error: undefined
-    };
-  }
+  state = {
+    error: undefined
+  };
 
-  onSubmit(event) {
+  onSubmit = (event) => {
     event.preventDefault();
     const option = event.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
@@ -17,7 +13,7 @@ export default class AddOption extends React.Component {
     if (!error) {
       event.target.elements.option.value = '';
     }
-  }
+  };
 
   render() {
     return (
