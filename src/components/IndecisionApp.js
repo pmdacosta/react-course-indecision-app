@@ -41,7 +41,7 @@ class IndecisionApp extends React.Component {
   };
 
   handleClearSelectedOption = () => {
-    this.setState(() => ({selectedOption: undefined}));
+    this.setState(() => ({ selectedOption: undefined }));
   };
 
   componentDidMount() {
@@ -68,16 +68,18 @@ class IndecisionApp extends React.Component {
     return (
       <div>
         <Header subtitle={subtitle} />
-        <Action
-          hasOptions={this.state.options.length > 0}
-          handlePick={this.handlePick}
-          pick={this.state.pick}
-        />
-        <Options options={this.state.options}
-          clearOptions={this.clearOptions}
-          removeOption={this.removeOption}
-        />
-        <AddOption handleAddOption={this.handleAddOption} />
+        <div className="container">
+          <Action
+            hasOptions={this.state.options.length > 0}
+            handlePick={this.handlePick}
+            pick={this.state.pick}
+          />
+          <Options options={this.state.options}
+            clearOptions={this.clearOptions}
+            removeOption={this.removeOption}
+          />
+          <AddOption handleAddOption={this.handleAddOption} />
+        </div>
         <OptionModal selectedOption={this.state.selectedOption}
           handleClearSelectedOption={this.handleClearSelectedOption}
         />
