@@ -12,10 +12,10 @@ const Options = (props) => (
     </div>
     {props.options.length === 0 && <p className="widget__message">Please insert an option to get started!</p>}
     {
-      props.options.map((option) =>
+      props.options.map((option, index) =>
         <Option
-          key={props.options.indexOf(option)}
-          index={props.options.indexOf(option)}
+          key={index}
+          index={index}
           option={option}
           removeOption={props.removeOption}
         />)

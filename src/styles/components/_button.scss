@@ -33,16 +33,20 @@
   padding: $s-size;
 }
 
-.button:hover {
-  border-bottom: $xxxs-size solid $dark-purple;
+.button--small {
   margin-top: $xxxs-size;
 }
 
-.button:disabled {
+.button--small:hover {
+  border-bottom: $xxxs-size solid $dark-purple;
+  margin-top: $xxs-size;
+}
+
+.button--small:disabled {
   opacity: 50%;
 }
 
-.button:disabled:hover {
+.button--small:disabled:hover {
   border-bottom: $xxs-size solid $dark-purple;
   margin-top: 0;
 }
