@@ -3,7 +3,7 @@ import Option from "./Option";
 
 const Options = (props) => (
   <div>
-    <button
+    <button className="button button--link"
       disabled={!props.options.length}
       onClick={props.clearOptions}
     >Remove All</button>

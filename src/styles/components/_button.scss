@@ -1,0 +1,55 @@
+.big-button {
+  background: $purple;
+  border: none;
+  border-bottom: $xs-size solid $dark-purple;
+  font-weight: bold;
+  font-size: $l-size;
+  color: white;
+  margin-bottom: $xl-size;
+  padding: $m-size 0;
+  width: 100%;
+}
+
+.big-button:hover {
+  border-bottom: $xxs-size solid $dark-purple;
+  margin-top: $xxs-size;
+}
+
+.big-button:disabled {
+  opacity: 50%;
+}
+
+.big-button:disabled:hover {
+  border-bottom: $xs-size solid $dark-purple;
+  margin-top: 0;
+}
+
+.button {
+  background: $purple;
+  border: none;
+  border-bottom: $xxs-size solid $dark-purple;
+  font-weight: 600;
+  color: white;
+  padding: $s-size;
+}
+
+.button:hover {
+  border-bottom: $xxxs-size solid $dark-purple;
+  margin-top: $xxxs-size;
+}
+
+.button:disabled {
+  opacity: 50%;
+}
+
+.button:disabled:hover {
+  border-bottom: $xxs-size solid $dark-purple;
+  margin-top: 0;
+}
+
+.button--link {
+  background: none;
+  border: none;
+  color: $off-white;
+  padding: 0;
+}
