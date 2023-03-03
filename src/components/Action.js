@@ -9,7 +9,6 @@ const Action = (props) => (
     >
       What should I do?
     </button>
-    {!!props.pick && <p>Do: {props.pick}</p>}
   </div>
 );
 
