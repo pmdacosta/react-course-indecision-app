@@ -5,9 +5,15 @@
   font-weight: bold;
   font-size: $l-size;
   color: white;
-  margin-bottom: $xl-size;
+  margin-bottom: $m-size;
   padding: $m-size 0;
   width: 100%;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .big-button {
+    margin-bottom: $xl-size;
+  }
 }
 
 .big-button:hover {
